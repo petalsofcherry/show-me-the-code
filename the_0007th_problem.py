@@ -17,6 +17,8 @@ class count_the_code_lines(object):
         the_dict['empty_lines'] += len(re.findall(pattern2, content))
         the_dict['comment_lines'] += len(re.findall(pattern3, content))
 
+        f.close()
+
     #对文件夹进行遍历，分别打开每个文件
     def traverse(self):
         the_dict = {'code_lines': 0, 'empty_lines': 0, 'comment_lines': 0}
