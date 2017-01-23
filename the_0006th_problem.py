@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
-这个题看起来简单，遇到的坑挺多的，比如记录到最多的词是冠词之类的。
-还有从时间复杂度上考虑，其实应该首选哈希表，次选快速排序的。
-不过Python自己有轮子，我就不自己造了。
-'''
+
 import glob
 from collections import Counter
 import re
