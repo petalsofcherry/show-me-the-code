@@ -17,10 +17,7 @@ def get_the_content(url):
     content_list = []
     soup = BeautifulSoup(file, 'lxml')
     for string in soup.body.stripped_strings:
-        try:
-            content_list.append(string)
-        except AttributeError:
-            continue
+        content_list.append(string)
     content  = "\n".join(content_list)
 
     return content
