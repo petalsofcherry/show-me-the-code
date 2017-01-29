@@ -11,12 +11,12 @@ def getImage():
         'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'
     }
     url = r"http://tieba.baidu.com/p/2166231880"
-    content = requests.get(url = url, headers=headers)
+    content = requests.get(url = url, headers = headers)
     html = content.text
 
     #获取图片
     soup = BeautifulSoup(html, "lxml")
-    divs = soup.find_all("div", class_="d_post_content j_d_post_content clearfix")
+    divs = soup.find_all("div", class_ = "d_post_content j_d_post_content clearfix")
     count = 0
     for div in divs:
         images = div.find_all("img")
