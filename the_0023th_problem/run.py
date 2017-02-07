@@ -3,7 +3,7 @@
 '''
 之前没写过后端的程序，第一次写成这样我已经很开心了（虽然知道很菜
 '''
-from flask import Flask, session, redirect, url_for, render_template, request, flash
+from flask import Flask, session, redirect, url_for, render_template, request
 from flask.ext.wtf import Form
 from wtforms import StringField, TextField, SubmitField
 from wtforms.validators import  DataRequired
