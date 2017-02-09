@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+<script type="text/javascript"
+  src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+<head>
+	<title>Todolist</title> 
+</head>
+<body>
+    <div>
+  		<form action="" method="post">
+  		{{form1.hidden_tag()}}
+  		  搜索任务: {{form1.search}}
+  		  {{form1.submit}}
+  		</form>
+  		<form action="" method="post">
+  		{{form2.hidden_tag()}}
+ 		  创建任务: {{form2.create}}
+ 		  {{form2.submit}}
+  		</form>
+
+    </div>
+    <hr>
+
+      {% block content %}{% endblock %}
+
+</body>
+</html>
