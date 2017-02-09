@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #coding: utf-8
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import Form
 from wtforms import StringField, SubmitField
@@ -65,10 +65,15 @@ def task_create():
         #搜索任务
         if request.method == 'POST' and form1.validate_on_submit():
                 task = form1.search.data
-                return render_template("table.html", form1=form1, form2=form2,\
-                                       schedules=schedules.query.filter_by(task=task).all())
+                return redirect(url_for('task_search', task=task))
         return render_template("table.html", form1=form1, form2=form2, schedules=schedules.query.all())
 
+@app.route('/<task>')
+def task_search(task):
+        form1 = search_form()
+        form2 = create_form()
+        return render_template("table.html", form1=form1, form2=form2,\
+                               schedules=schedules.query.filter_by(task=task).all())
 
 if __name__ == '__main__':
     app.run(debug=True)
